@@ -4,10 +4,7 @@ import io.tpd.superheroes.domain.SuperHero;
 
 import java.util.Optional;
 
-/**
- * Provides access to superheroes' data
- * @author moises.macero
- */
+
 public interface SuperHeroRepository {
 
     /**

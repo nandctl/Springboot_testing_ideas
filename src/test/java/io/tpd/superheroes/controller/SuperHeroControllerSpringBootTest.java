@@ -26,7 +26,10 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
  * @author moises.macero
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT) //@SpringBootTest annotation will load the fully ApplicationContext.
+                                                            // Therefore it is highly used for writing the integration testing in web server environment.
+                                                            //This will not use slicing and scan for all the stereotype annotations (@Component, @Service, @Respository and @Controller / @RestController) and loads the full application context.
+                                                           // Therefore this is more good at in the context of writing integration testing for the application.
 public class SuperHeroControllerSpringBootTest {
 
     @MockBean

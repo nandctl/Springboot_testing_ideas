@@ -1,14 +1,17 @@
 package io.tpd.superheroes.controller;
 
+/*
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+*/
 /**
  * @author moises.macero
- */
+ *//*
+
 @Component
 public class SuperHeroFilter implements Filter {
 
@@ -25,3 +28,4 @@ public class SuperHeroFilter implements Filter {
     @Override
     public void destroy() {}
 }
+*/

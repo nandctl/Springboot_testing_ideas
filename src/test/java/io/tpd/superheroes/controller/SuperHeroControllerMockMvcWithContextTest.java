@@ -23,14 +23,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
-/**
- * This class demonstrates how to test a controller using MockMVC loading a Test Context
- *
- * @author moises.macero
- */
 @RunWith(SpringRunner.class)
-@WebMvcTest(SuperHeroController.class)
+@WebMvcTest(SuperHeroController.class) //annotation will load only the controller layer of the application. This will scan only the @Controller/ @RestController annotation and will not load the fully.
+                                       // @WebMvcTest also auto-configures MockMvc.
+                                       // MockMVC offers a powerful way to quickly test MVC controllers without needing to start a full HTTP server.
 public class SuperHeroControllerMockMvcWithContextTest {
 
     @Autowired
@@ -50,6 +48,7 @@ public class SuperHeroControllerMockMvcWithContextTest {
 
     @Test
     public void canRetrieveByIdWhenExists() throws Exception {
+
         // given
         given(superHeroRepository.getSuperHero(2))
                 .willReturn(new SuperHero("Rob", "Mannon", "RobotMan"));
@@ -76,7 +75,7 @@ public class SuperHeroControllerMockMvcWithContextTest {
         // when
         MockHttpServletResponse response = mvc.perform(
                 get("/superheroes/2")
-                        .accept(MediaType.APPLICATION_JSON))
+                        .accept(MediaType.APPLICATION_JSON)).andDo(print())
                 .andReturn().getResponse();
 
         // then
@@ -137,7 +136,7 @@ public class SuperHeroControllerMockMvcWithContextTest {
         // when
         MockHttpServletResponse response = mvc.perform(
                 get("/superheroes/2")
-                        .accept(MediaType.APPLICATION_JSON))
+                        .accept(MediaType.APPLICATION_JSON)).andDo(print())
                 .andReturn().getResponse();
 
         // then

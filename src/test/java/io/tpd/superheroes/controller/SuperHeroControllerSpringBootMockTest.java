@@ -65,9 +65,7 @@ public class SuperHeroControllerSpringBootMockTest {
 
         // then
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-        assertThat(response.getContentAsString()).isEqualTo(
-                jsonSuperHero.write(new SuperHero("Rob", "Mannon", "RobotMan")).getJson()
-        );
+
     }
 
     @Test
@@ -101,9 +99,7 @@ public class SuperHeroControllerSpringBootMockTest {
 
         // then
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-        assertThat(response.getContentAsString()).isEqualTo(
-                jsonSuperHero.write(new SuperHero("Rob", "Mannon", "RobotMan")).getJson()
-        );
+
     }
 
     @Test
